@@ -1054,6 +1054,7 @@ class core_user_external extends external_api {
                         'value' => new external_value(PARAM_RAW, 'The value of the custom field'),
                         'name' => new external_value(PARAM_RAW, 'The name of the custom field'),
                         'shortname' => new external_value(PARAM_RAW, 'The shortname of the custom field - to be able to build the field class in the code'),
+                        'category' => new external_value(PARAM_RAW, 'The name of the category the custom field resides in'),
                     )
                 ), 'User custom fields (also known as user profile fields)', VALUE_OPTIONAL),
             'preferences' => new external_multiple_structure(

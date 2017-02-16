@@ -331,7 +331,7 @@ function user_get_user_details($user, $course = null, array $userfields = array(
     $userdetails['fullname'] = fullname($user);
 
     if (in_array('customfields', $userfields)) {
-        $fields = $DB->get_recordset_sql("SELECT f.*
+        $fields = $DB->get_recordset_sql("SELECT f.*, c.name as categoryname
                                             FROM {user_info_field} f
                                             JOIN {user_info_category} c
                                                  ON f.categoryid=c.id
@@ -355,7 +355,8 @@ function user_get_user_details($user, $course = null, array $userfields = array(
 
                 $userdetails['customfields'][] =
                     array('name' => $formfield->field->name, 'value' => $fieldvalue,
-                        'type' => $field->datatype, 'shortname' => $formfield->field->shortname);
+                        'type' => $field->datatype, 'shortname' => $formfield->field->shortname,
+                        'category' => $field->categoryname);
             }
         }
         $fields->close();
