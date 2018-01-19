@@ -592,7 +592,7 @@ class auth_plugin_db extends auth_plugin_base {
                 }
 
                 if (!empty($this->config->{'field_updatelocal_' . $key})) {
-                    if (isset($user->{$key}) and $user->{$key} != $value) { // Only update if it's changed.
+                    if ($user->{$key} != $value) { // Only update if it's changed.
                         $needsupdate = true;
                         $updateuser->$key = $value;
                     }
